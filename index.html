@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>weatherio</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="title" content="weatherio">
+        <link rel="shortcut-icon" href="./favicon.svg" type="image/svg+xml">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="./assets/css/style.css">
+    <script src="./assets/js/app.js" type="module"></script>
+    <script src="./assets/js/api.js" type="module"></script>
+    <script src="./assets/js/route.js" type="module" ></script>
+    <!-- <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet"> -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/3.4.4/tailwind.min.css" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+    <body>
+<!-- -Header -->
+<header class="header">
+    <div class="container">
+        <a href="#" class="logo">
+            <img src="./assets/images/logo.png" width="364" height="58" alt="logo">
+        </a>
+</header>
+
+<div class="search-bar">
+    <input type="text" id="city-input" placeholder="Enter city name">
+    <button id="search-button">Search</button>
+</div>
+
+<div class="flex gap-2 ">
+    <div class="flex flex-col space-y-4 p-8 alpha-4 rounded-3xl h-[220px]"><b>Now</b>
+        <div class="flex items-center gap-20 "><p class="text-7xl"></p><i class="fa-solid fa-cloud fa-2x"></i></div>
+       <p class="weatherdes">Broken Clouds</p>
+       <hr>
+       <ul><li class="flex items-center gap-2"><span><i class="fa-regular fa-calendar"></i></span>
+        <p class="text-gray-400 current-date"></p></li>
+        <li class="flex items-center gap-2"><span><i class="fa-solid fa-location-dot"></i></span>
+        <p class="text-gray-400 city"></p></li>
+</ul>
+    </div>
+   
+<!-- right content -->
+ <!-- top two boxes -->
+  <div class="flex flex-col alpha-4">
+  <div class="main-div-of-right  flex gap-20 px-6 w-full">
+<div class="box-left flex flex-col gap-[60px] back p-6 w-[600px]">
+    <div class="flex gap-[360px]"><p class="text-3xl">Air Quality Index</p><span class="bg-lime-300 text-black px-6 rounded-3xl"></span></div>
+    <div class="flex items-center gap-10"><i class="fa-solid fa-wind fa-3x"></i>
+    <div class="grid grid-cols-4 gap-20 text-center">
+        <div>
+            <p class="text-2xl pb-2 ">PM2.5</p>
+            <p class="text-5xl pm"></p>
+        </div>
+        <div>
+            <p class="text-2xl pb-2">SO2</p>
+            <p class="text-5xl so2"></p>
+        </div>
+        <div>
+            <p class="text-2xl pb-2">NO2</p>
+            <p class="text-5xl no2"></p>
+        </div>
+        <div>
+            <p class="text-2xl pb-2">O3</p>
+            <p class="text-5xl o3"></p>
+        </div>
+    </div>
+    </div>
+</div>
+<div class="box-right flex flex-col gap-[50px] back p-6 w-[500px]">
+    <div><p class="text-3xl">Sunrise & Sunset</p></div>
+    <div class="flex items-center gap-20">
+        <i class="fa-solid fa-sun fa-3x"></i>
+        <div><p class="text-3xl pb-3">Sunrise</p><p class="text-5xl rise"></p></div>
+        <i class="fa-regular fa-moon fa-3x"></i>
+        <div><p class="text-3xl pb-3">Sunset</p><p class="text-5xl set"></p></div>
+    </div>
+</div>
+
+
+  </div>
+  <div class="grid grid-cols-4 gap-2 p-5">
+    <div class="back w-[220px] px-10 py-5 rounded-3xl">
+    <p class="pb-10">Humidity</p>
+    <div class="flex gap-[60px] items-center"><i class="fa-solid fa-droplet fa-3x"></i> <p class="text-5xl alpha-4 p-2 humidity"></p></div>
+</div>
+<div class="back w-[240px] px-10 py-5 rounded-3xl">
+    <p class="pb-10">Pressure</p>
+    <div class="flex gap-[40px] items-center"><i class="fa-solid fa-water fa-3x"></i> <p class="text-5xl p-2 pressure"></p></div>
+</div>
+<div class="back w-[220px] px-10 py-5 rounded-3xl">
+    <p class="pb-10">Visibility</p>
+    <div class="flex gap-[60px] items-center"><i class="fa-regular fa-eye fa-3x"></i> <p class="text-5xl p-2 visibility"></p></div>
+</div>
+<div class="back w-[230px] px-10 py-5 rounded-3xl">
+    <p class="pb-10">Feels Like</p>
+    <div class="flex gap-[60px] items-center"><i class="fa-solid fa-temperature-quarter fa-3x"></i> <p class="text-5xl p-2 feels"></p></div>
+</div>
+</div>
+  </div>
+
+
+</div>
+
+<!-- forecast -->
+<p class="text-4xl">5 Days Forecast</p>
+ <div class="flex gap-10">
+    <div class="grid grid-rows-5 gap-10 alpha-4 w-[330px] p-10">
+        <div id="day-1" class="flex gap-10"></div>
+        <div id="day-2" class="flex gap-7"></div>
+        <div id="day-3" class="flex gap-10"></div>
+        <div id="day-4" class="flex gap-10"></div>
+        <div id="day-5" class="flex gap-10"></div>
+    </div>
+    
+
+    <div class="flex flex-col gap-10 ">
+        <p class="text-4xl">Today At</p>
+        <div id="hourly-row-1" class="grid grid-cols-8 gap-10 p-10"></div>
+        <div id="hourly-row-2" class="grid grid-cols-8 gap-10 "></div>
+ </div>
+ </div>
+
+    </body>
+</html>
